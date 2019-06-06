@@ -736,6 +736,7 @@ public class ContextHandler extends ScopedHandler implements Attributes, Gracefu
     protected void addProgrammaticListener(EventListener listener)
     {
         _programmaticListeners.add(listener);
+        addEventListener(listener);
     }
 
     /* ------------------------------------------------------------ */
