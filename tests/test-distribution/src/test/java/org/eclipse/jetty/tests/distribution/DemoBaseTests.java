@@ -136,7 +136,7 @@ public class DemoBaseTests extends AbstractDistributionTest
             assertTrue(run1.awaitConsoleLogsFor("Started @", 20, TimeUnit.SECONDS));
 
             startHttpClient();
-            ContentResponse response = client.GET("http://localhost:" + httpPort + "/test-spec/asy/xx");
+            ContentResponse response = client.POST("http://localhost:" + httpPort + "/test-spec/asy/xx").send();
             assertEquals(HttpStatus.OK_200, response.getStatus());
             assertThat(response.getContentAsString(), containsString("<span class=\"pass\">PASS</span>"));
             assertThat(response.getContentAsString(), not(containsString("<span class=\"fail\">FAIL</span>")));
